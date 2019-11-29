@@ -7,6 +7,7 @@
   <link rel="shortcut icon" href="public/images/icon.png">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -41,8 +42,8 @@
       #navbar{
         border-top:2px solid #068142;
       }
-      .container-fluid #navbar_border button:hover{
-        background-color: orange;
+      #button_icon:hover{
+        background-color: yellow;
       }
     }
     /* reponsive_mobile */
@@ -76,11 +77,19 @@
         }
       }
     });
+
+    $(document).ready(function(){
+      $(".navbar-toggle").hover(function(){
+        $(this).css("background-color", "yellow");
+        }, function(){
+        $(this).css("background-color", "white");
+      });
+    });
   </script>
 
 </head>
 
-<body style="font-family: 'Roboto', sans-serif;">
+<body style="font-family: 'Roboto', sans-serif;background-color:#90ee90;">
 
 <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:white;border:0px solid white;
 box-shadow: 0 2px 5px rgba(0,0,0,0.14), 0 2px 5px rgba(0,0,0,0.20);">
@@ -93,9 +102,9 @@ box-shadow: 0 2px 5px rgba(0,0,0,0.14), 0 2px 5px rgba(0,0,0,0.20);">
         <span class="icon-bar" style="background-color:#068142"></span>                        
       </button>
 
-      <button type="button" class="navbar-toggle" data-toggle="collapse" onclick="openSearch()"
+      <button type="button" class="navbar-toggle" onclick="openSearch()"
       style="margin-top:20px;border:2px solid #068142;padding:5.2px;background-color:white;">
-        <i class="fa fa-search" style="font-size:20px;color:#068142;width:25px;"></i>                     
+        <i class="fa fa-search" style="font-size:20px;color:#068142;width:25px;"></i>
       </button>
 
       <a href="#" style="margin-right:5px;">
@@ -224,7 +233,7 @@ box-shadow: 0 2px 5px rgba(0,0,0,0.14), 0 2px 5px rgba(0,0,0,0.20);">
   <div class="overlay-content">
     <form action="#">
       <input type="text" placeholder="Nhập tìm kiếm ..." name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
+      <button type="submit" title="Tìm kiếm"><i class="fa fa-search"></i></button>
     </form>
   </div>
 </div>
@@ -240,62 +249,97 @@ box-shadow: 0 2px 5px rgba(0,0,0,0.14), 0 2px 5px rgba(0,0,0,0.20);">
   }
 </script>
 
+<div class="container" style="border-radius:3px;background-color:white;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);padding-top:15px;padding-bottom:15px;">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
 
+      <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-bottom:5px;">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <img src="public/images/carousel/1.png" class="img-responsive" style="width:100%;height:40%;">
+            <div class="carousel-caption">
+              <h3>Xây dựng phát triển hệ thống trung tâm cung ứng nông sản hiện</h3>
+            </div>      
+          </div>
 
-<div class="container">
-<div class="row">
-  <div class="col-sm-8">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-      </ol>
+          <div class="item">
+            <img src="public/images/carousel/2.png" class="img-responsive" style="width:100%;height:40%;">
+            <div class="carousel-caption">
+              <h3>Xây dựng phát triển hệ thống trung tâm cung ứng nông sản hiện</h3>
+            </div>      
+          </div>
 
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <img src="https://placehold.it/800x400?text=IMAGE" alt="Image">
-          <div class="carousel-caption">
-            <h3>Sell $</h3>
-            <p>Money Money.</p>
-          </div>      
+          <div class="item">
+            <img src="public/images/carousel/3.png" class="img-responsive" style="width:100%;height:40%;">
+            <div class="carousel-caption">
+              <h3>Xây dựng phát triển hệ thống trung tâm cung ứng nông sản hiện</h3>
+            </div>      
+          </div>
         </div>
 
-        <div class="item">
-          <img src="https://placehold.it/800x400?text=Another Image Maybe" alt="Image">
-          <div class="carousel-caption">
-            <h3>More Sell $</h3>
-            <p>Lorem ipsum...</p>
-          </div>      
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <img src="public/images/information/1.png" class="img-responsive"
+          style="border: 1px solid #ddd;border-radius: 4px;padding:3px;margin-bottom:5px;">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <strong>Xây dựng huyện Nam Đàn, tỉnh Nghệ An trở thành huyện nông thôn mới kiểu mẫu theo</strong>
         </div>
       </div>
 
-      <!-- Left and right controls -->
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <img src="public/images/information/2.png" class="img-responsive"
+          style="border: 1px solid #ddd;border-radius: 4px;padding:3px;margin-bottom:5px;">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <strong>Nông thôn mới ở Sơn Thủy: Chuồng đầy dê, lúa đầy đồng</strong>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <img src="public/images/information/3.png" class="img-responsive"
+          style="border: 1px solid #ddd;border-radius: 4px;padding:3px;margin-bottom:5px;">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <strong>Xây dựng phát triển hệ thống trung tâm cung ứng nông sản hiện</strong>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <img src="public/images/information/4.png" class="img-responsive"
+          style="border: 1px solid #ddd;border-radius: 4px;padding:3px;margin-bottom:5px;">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <strong>Công nghiệp hóa, hiện đại hóa nông nghiệp nông thôn là nhiệm vụ hàng</strong>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="well">
-      <p>Some text..</p>
-    </div>
-    <div class="well">
-       <p>Upcoming Events..</p>
-    </div>
-    <div class="well">
-       <p>Visit Our Blog</p>
-    </div>
+
   </div>
 </div>
-<hr>
-</div>
+
 
 <div class="container text-center">    
   <h3>What We Do</h3>

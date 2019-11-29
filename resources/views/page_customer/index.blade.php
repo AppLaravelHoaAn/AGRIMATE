@@ -23,7 +23,8 @@
       width: 100%;
       min-height: 200px;
     }
-
+    
+    /* reponsive_mobile */
     @media (max-width: 600px) {
       .carousel-caption {
         display: none; 
@@ -37,15 +38,45 @@
       #icon_home{
         background-color: white;
       }
+      #navbar{
+        border-top:2px solid #068142;
+      }
+      .container-fluid #navbar_border button:hover{
+        background-color: orange;
+      }
     }
+    /* reponsive_mobile */
+
+    /* reponsive_mobile_dropdown_menu */
+    @media only screen and (min-width: 768px) {
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+    }
+    /* reponsive_mobile_dropdown_menu */
 
     .responsive {
       max-width: 95%;
       height: 60px;
       margin:5px;
     }
-
+    .dropdown #button_dropdown{
+      border-radius: 2px;
+      background-color:white;
+    }
   </style>
+
+  <script type="text/javascript">
+    $('.dropdown-toggle').click(function(e) {
+      if ($(document).width() > 768) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        if (url !== '#') {
+          window.location.href = url;
+        }
+      }
+    });
+  </script>
 
 </head>
 
@@ -54,9 +85,8 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:white;border:0px solid white;
 box-shadow: 0 2px 5px rgba(0,0,0,0.14), 0 2px 5px rgba(0,0,0,0.20);">
   <div class="container-fluid">
-
-    <div class="navbar-header" id="navbar_border">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"
+     <div class="navbar-header" id="navbar_border">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar"
       style="margin-top:20px;border:2px solid #068142;background-color:white;">
         <span class="icon-bar" style="background-color:#068142"></span>
         <span class="icon-bar" style="background-color:#068142"></span>
@@ -73,76 +103,117 @@ box-shadow: 0 2px 5px rgba(0,0,0,0.14), 0 2px 5px rgba(0,0,0,0.20);">
       </a>
     </div>
 
-    <div class="collapse navbar-collapse" id="myNavbar">
+    <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="active">
-          <a href="#" style="height:70px;width:70px;padding-top:15px;background-color:#068142;border-radius:2px;" id="icon_home"> 
+
+        <li style="background-color:#068142;border-radius:2px;">
+          <a href="#" style="height:70px;color:white;" id=> 
             <i class="fa fa-home" style="font-size:38px;"></i>
           </a>
         </li>
-        <li>
-          <div class="dropdown">
-            <button class="dropbtn">
-              <img src="public/images/icon_nha_nuoc.png" style="width:30px;height:30px;">
-              Nhà nước
-            </button>
-            <div class="dropdown-content">
-              <a href="#"><i class="fa fa-arrow-circle-right"></i> Thông tin văn bản pháp luật</a>
-              <a href="#"><i class="fa fa-arrow-circle-right"></i> Danh bạ các cơ quan tổ chức</a>
-              <a href="#"><i class="fa fa-arrow-circle-right"></i> Các cá nhân phụ trách các lĩnh vực</a>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="dropdown">
-            <button class="dropbtn">
-              <img src="public/images/icon_doanh_nghiep.png" style="width:30px;height:30px;">
-              Nhà doanh nghiệp
-            </button>
-            <div class="dropdown-content">
-              <a href="#"><i class="fa fa-arrow-circle-right"></i> Công ty/ doanh nghiệp</a>
-              <a href="#"><i class="fa fa-arrow-circle-right"></i> Nhà phân phối/Đại lý</a>
-            </div>
-          </div>
-        </li>
-        <li class="active">
-          <div class="dropdown">
-            <button class="dropbtn">
-              <img src="public/images/icon_khoa_hoc.png" style="width:30px;height:30px;">
-              Nhà khoa học
-            </button>
-          </div>
-        </li>
-        <li class="active">
-          <div class="dropdown">
-            <button class="dropbtn">
-              <img src="public/images/icon_nong_dan.png" style="width:30px;height:30px;">
-              Nhà nông
-            </button>
-          </div>
-        </li>
-        <li class="active">
-              <a href="#" style="height:70px;width:70px;padding-top:23px;
-              background-color:white;border-radius:5px;" data-toggle="tooltip" title="Tìm kiếm" id="search"> 
-                <img src="public/images/icon_search.png" onclick="openSearch()"
-                style="width:30px;height:30px;">
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" id="button_dropdown" 
+          aria-haspopup="true" aria-expanded="false" style="height:70px;color:#068142;font-size:20px;padding-top:20px;">
+            <img src="public/images/icon_nha_nuoc.png" style="width:30px;height:30px;">
+            <span>Nhà nước</span> <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" style="border:1px solid #068142;font-size:16px;">
+            <li>
+              <a href="#" style="color:#068142;">
+                <i class="fa fa-arrow-circle-right"></i> Thông tin văn bản pháp luật
               </a>
+            </li>
+            <li>
+              <a href="#" style="color:#068142;">
+                <i class="fa fa-arrow-circle-right"></i> Danh bạ các cơ quan tổ chức
+              </a>
+            </li>
+            <li>
+              <a href="#" style="color:#068142;">
+                <i class="fa fa-arrow-circle-right"></i> Các cá nhân phụ trách các lĩnh vực
+              </a>
+            </li>
+            {{-- <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li class="dropdown-header">Nav header</li>
+            <li><a href="#">Separated link</a></li>
+            <li><a href="#">One more separated link</a></li> --}}
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" id="button_dropdown" 
+          aria-haspopup="true" aria-expanded="false" style="height:70px;color:#068142;font-size:20px;padding-top:20px;">
+            <img src="public/images/icon_doanh_nghiep.png" style="width:30px;height:30px;">
+            <span>Nhà doanh nghiệp</span> <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" style="border:1px solid #068142;font-size:16px;">
+            <li>
+              <a href="#" style="color:#068142;">
+                <i class="fa fa-arrow-circle-right"></i> Công ty/ doanh nghiệp
+              </a>
+            </li>
+            <li>
+              <a href="#" style="color:#068142;">
+                <i class="fa fa-arrow-circle-right"></i> Nhà phân phối/Đại lý
+              </a>
+            </li>
+            <li>
+              <a href="#" style="color:#068142;">
+                <i class="fa fa-arrow-circle-right"></i> Hợp tác xã
+              </a>
+            </li>
+              
+            {{-- <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li class="dropdown-header">Nav header</li>
+            <li><a href="#">Separated link</a></li>
+            <li><a href="#">One more separated link</a></li> --}}
+          </ul>
+        </li>
+
+        <li>
+          <a href="#" style="height:70px;color:#068142;font-size:20px;padding-top:20px;">
+            <img src="public/images/icon_khoa_hoc.png" style="width:30px;height:30px;">
+            <span>Nhà khoa học</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" style="height:70px;color:#068142;font-size:20px;padding-top:20px;">
+            <img src="public/images/icon_nong_dan.png" style="width:30px;height:30px;">
+            <span>Nhà nông</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" style="height:70px;width:70px;padding-top:23px;
+          background-color:white;border-radius:5px;" data-toggle="tooltip" title="Tìm kiếm" id="search"> 
+            <img src="public/images/icon_search.png" onclick="openSearch()"
+            style="width:30px;height:30px;">
+          </a>
         </li>
 
       </ul>
+      <!-- end_ul -->
 
-      <ul class="nav navbar-nav navbar-right" style="margin-right:5px;">
+      <ul class="nav navbar-nav navbar-right">
+        {{-- <li>
+          <a href="#" style="height:70px;color:#068142;font-size:20px;padding-top:10px;">
+            <img src="public/images/icon_login.png" style="width:110px;height:50px;">
+          </a>
+        </li> --}}
         <li>
-          <a class="btn btn-default" href="#" role="button" id="button_login" 
-          style="margin-top:13px;padding:6px;color:#068142;background-color:white;
-          border:2px solid #068142;border-radius:6px;font-size:16px;">
-            <img src="public/images/icon_login.png" style="width:30px;height:30px;">
-            Đăng nhập
+          <a href="#" style="height:70px;color:#068142;font-size:20px;padding-top:20px;">
+            <img src="public/images/login.ico" style="width:30px;height:30px;">
+            <span>Đăng nhập</span>
           </a>
         </li>
       </ul>
 
     </div>
+    <!--/.nav-collapse -->
   </div>
 </nav><br><br><br><br>
 
@@ -151,7 +222,7 @@ box-shadow: 0 2px 5px rgba(0,0,0,0.14), 0 2px 5px rgba(0,0,0,0.20);">
 <div id="myOverlay" class="overlay">
   <span class="closebtn" onclick="closeSearch()" title="Close Overlay">x</span>
   <div class="overlay-content">
-    <form action="action_page.php">
+    <form action="#">
       <input type="text" placeholder="Nhập tìm kiếm ..." name="search">
       <button type="submit"><i class="fa fa-search"></i></button>
     </form>
@@ -163,7 +234,6 @@ box-shadow: 0 2px 5px rgba(0,0,0,0.14), 0 2px 5px rgba(0,0,0,0.20);">
   function openSearch() {
     document.getElementById("myOverlay").style.display = "block";
   }
-
   // Close the full screen search box
   function closeSearch() {
     document.getElementById("myOverlay").style.display = "none";
